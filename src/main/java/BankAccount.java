@@ -5,11 +5,11 @@ public class BankAccount {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
-    private int accountNumber;
+    private String accountNumber;
     private double balance;
 
-    // Constructor to initialise the account with the deets
-    public BankAccount() {
+    // Constructor to initialise the account with the deets!
+    public BankAccount(String suzi, String towers, LocalDate localDate, String number) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -31,7 +31,7 @@ public class BankAccount {
         return lastName;
     }
     // Setter for last name
-    public void getLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -45,11 +45,11 @@ public class BankAccount {
     }
 
     // Getter for the account number
-    public int getAccountNumber(){
+    public String getAccountNumber(){
         return accountNumber;
     }
     // Setter for the account number
-    public void setAccountNumber(int accountNumber){
+    public void setAccountNumber(String accountNumber){
         this.accountNumber = accountNumber;
     }
 
@@ -62,25 +62,30 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    // Method
-    public void deposit(double amount) {
+    // Method to deposit money into the account
+    public double deposit(double amount) {
         if (amount > 0) {
             balance += amount;
         } else {
             System.out.println("Invalid. Please input an integer greater than 0!");
         }
+        return amount;
     }
 
-    //
-    public void withdrawal(double amount) {
+    // Method to withdraw money from the account
+    public double withdrawal(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
         } else {
             System.out.println("Invalid. Please input an integer greater than 0 and less than your balance!");
         }
-
-        public void payInterest() {
-            balance += 0.05 * balance;
-        }
+        return amount;
     }
+
+    // Method to pay interest of 5%
+    public double payInterest() {
+        balance += 0.05 * balance;
+        return 0;
+    }
+
 }
