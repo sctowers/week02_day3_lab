@@ -13,8 +13,7 @@ public class TestBankAccount {
         // When
         account.setFirstName("Suzi");
         // Then
-        String expectedFirstName = "Suzi";
-        assertThat(account.getFirstName()).isEqualTo(expectedFirstName);
+        assertThat(account.getFirstName()).isEqualTo("Suzi");
     }
 
 

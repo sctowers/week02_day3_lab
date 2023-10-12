@@ -30,7 +30,7 @@ public class BankAccount {
         this.firstName = firstName;
     }
 
-    //Getter for last name
+    // Getter for last name
     public String getLastName() {
         return lastName;
     }
@@ -85,47 +85,43 @@ public class BankAccount {
     }
 
     // Method to deposit money into the account
-    public double deposit(double amount) {
+    public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
         } else {
             System.out.println("Invalid. Please input an integer greater than 0!");
         }
-        return amount;
     }
 
     // Method to withdraw money from the account
-//    public double withdrawal(double amount) {
+//    public void withdrawal(double amount) {
 //        if (amount > 0 && amount <= balance) {
 //            balance -= amount;
 //        } else {
 //            System.out.println("Invalid. Please input an integer greater than 0 and less than your balance!");
 //        }
-//        return amount;
 //    }
 
     // Modify the withdrawal method to consider overdraft
-    public double withdrawal(double amount) {
+    public void withdrawal(double amount) {
         if (amount > 0) {
             if (amount <= balance + overdraft) {
                 balance -= amount;
             } else {
-                System.out.println("Sorry, you don't have enought money :( ");
+                System.out.println("Sorry, you don't have enough money :( ");
             }
         } else {
             System.out.println("Invalid. Please input an integer greater than 0!");
         }
-        return amount;
     }
 
     // Method to pay interest of 5%
-//    public double payInterest() {
+//    public void payInterest() {
 //        balance += 0.05 * balance;
-//        return 0;
 //    }
 
     // Modify the payInterest method to adjust interest based on accountType
-    public double payInterest() {
+    public void payInterest() {
         if ("savings".equals(accountType)) {
             balance += 0.05 * balance;
         } else if ("current".equals(accountType)) {
@@ -133,7 +129,6 @@ public class BankAccount {
         } else {
             System.out.println("Invalid account type.");
         }
-        return 0;
     }
 
 }
