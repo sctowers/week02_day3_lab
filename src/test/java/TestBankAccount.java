@@ -9,7 +9,7 @@ public class TestBankAccount {
     @Test
     public void testFirstNameGetterAndSetter() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.setFirstName("Suzi");
         // Then
@@ -22,7 +22,7 @@ public class TestBankAccount {
     @Test
     public void testLastNameGetterAndSetter() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.setLastName("Towers");
         // Then
@@ -34,7 +34,7 @@ public class TestBankAccount {
     @Test
     public void testDateOfBirthGetterAndSetter() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.setDateOfBirth(LocalDate.of(2001, 12, 14));
         // Then
@@ -46,7 +46,7 @@ public class TestBankAccount {
     @Test
     public void testAccountNumberGetterAndSetter() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.setAccountNumber("146133");
         // Then
@@ -58,7 +58,7 @@ public class TestBankAccount {
     @Test
     public void testBalanceGetterAndSetter() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.setBalance(2000.0);
         // Then
@@ -67,11 +67,35 @@ public class TestBankAccount {
 
     }
 
+    // Testing account type getter and setter
+    @Test
+    public void testAccountTypeGetterAndSetter() {
+        // Given
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
+        // When
+        account.setAccountType("savings");
+        // Then
+        String expectedAccountType = "savings";
+        assertThat(account.getAccountType()).isEqualTo(expectedAccountType);
+    }
+
+    // Testing overdraft getter and setter
+    @Test
+    public void testOverdraftGetterAndSetter() {
+        // Given
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
+        //When
+        account.setOverdraft(1000.0);
+        //Then
+        double expectedOverdraft = 1000.0;
+        assertThat(account.getOverdraft()).isEqualTo(expectedOverdraft);
+    }
+
     // Test the initial account setup
     @Test
     public void testInitialBalance() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When (N/A)
 
         // Then
@@ -83,7 +107,7 @@ public class TestBankAccount {
     @Test
     public void testDeposit() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         // When
         account.deposit(2000.0);
         // Then
@@ -95,7 +119,7 @@ public class TestBankAccount {
     @Test
     public void testWithdrawal() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         account.deposit(2000.0);
         // When
         account.withdrawal(300.0);
@@ -108,7 +132,7 @@ public class TestBankAccount {
     @Test
     public void testPayInterest() {
         // Given
-        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133");
+        BankAccount account = new BankAccount("Suzi", "Towers", LocalDate.of(2001, 12, 14), "146133", "savings", 1000.0);
         account.deposit(2000.0);
         // When
         account.payInterest();

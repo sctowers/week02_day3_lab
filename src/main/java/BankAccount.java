@@ -11,7 +11,7 @@ public class BankAccount {
     private double overdraft;
 
     // Constructor to initialise the account with the deets!
-    public BankAccount(String suzi, String towers, LocalDate localDate, String number) {
+    public BankAccount(String firstName, String lastName, LocalDate dateOfBirth, String accountNumber, String accountType, double overdraft) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
