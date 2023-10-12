@@ -16,7 +16,7 @@ public class TestBankAccount {
         String expectedFirstName = "Suzi";
         assertThat(account.getFirstName()).isEqualTo(expectedFirstName);
     }
-    
+
 
     // Testing last name getter and setter
     @Test
